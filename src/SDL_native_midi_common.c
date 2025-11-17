@@ -234,7 +234,7 @@ static MIDIEvent *MIDItoStream(MIDIFile *mididata)
     }
 
     // Make sure the list is properly terminated
-    currentEvent->next = 0;
+    currentEvent->next = NULL;
 
     currentEvent = head->next;
     SDL_free(track);
@@ -396,4 +396,3 @@ NativeMidi_Song *NativeMidi_LoadSong(const char *path)
     SDL_IOStream *io = SDL_IOFromFile(path, "rb");
     return io ? NativeMidi_LoadSong_IO(io, true) : NULL;
 }
-
